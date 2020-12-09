@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin="" />
+  <link rel="stylesheet" 
+        href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
 
   <link rel="stylesheet" href="style.css">
   
   <title>Frontend Mentor | IP Address Tracker</title>
 
- 
 </head>
 <body>
 
@@ -25,15 +26,16 @@
     <form action="">
 
       <div class="form-control">
-        <input type="text" placeholder="Search for any IP address or domain" >
+        <input type="text" id="typed-address" placeholder="Search for any IP address or domain" >
         <div class="input-button">
-          <button>
+          <button onClick=checkNewIp()>
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
               <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
             </svg>
           </button>
         </div>
       </div>
+
     </form>
   
         
@@ -42,20 +44,20 @@
   <div class="result">
     <div>
       <div class="result__title">IP Address</div>
-      <div class="result__value">192.168.0.101</div>
+      <div class="result__value" id="ip-field"></div>
     </div>
     <div>
       <div class="result__title">Location</div>
-      <div class="result__value">Montes Claros, MG</div>
+      <div class="result__value" id="location-field"></div>
     </div>
     <div>
       <div class="result__title">Timezone</div>
-      <div class="result__value">UTC - 03:00</div>
+      <div class="result__value" id="timezone-field"> </div>
       <!-- add offset value dynamically using the API -->
     </div>
     <div>
       <div class="result__title">ISP</div>
-      <div class="result__value">SpaceX Stralink</div>
+      <div class="result__value" id="isp-field"></div>
     </div>
   
   </div>
@@ -64,11 +66,13 @@
     <div id="mapid"></div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="getIp.js"></script>
+
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
-
-  <script src="scripts.js"></script>
+  <script src="getMap.js"></script>
 
 
 </body>

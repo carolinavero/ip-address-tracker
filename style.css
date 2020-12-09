@@ -103,7 +103,7 @@ button {
 
     font-weight: 500;
     
-    width: 900px;
+    width: /* 900px */ 1200px;
     padding: 2rem;
     margin-top: 2rem;
     
@@ -142,10 +142,21 @@ button {
     height: 100%; 
 }
 
+
+
 @media(max-width: 600px) {
     .result {
         flex-direction: column;
         width: auto;
+        text-align: center;
+    }
+    .result > div {
+        border: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 2rem;
+        text-align: center;
+        width: 100%;
     }
     main {
         height: 40vh;
