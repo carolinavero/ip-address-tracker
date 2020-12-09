@@ -1,25 +1,67 @@
 var myIp; 
+
 var api_key = "at_mkLIkbTakk4E6vBL67rFMZgLRGCSq";
+var url = "https://geo.ipify.org/api/v1";
 
-var loadData = $.ajax({
-    url: "https://geo.ipify.org/api/v1",
-    data: { apiKey: api_key, ipAddress: myIp },
-    success: function (data) {
-        console.log(data);
+var latValue;
+var lngValue;
 
-        ipField.innerHTML = data.ip;
-        ispField.innerHTML = data.isp;
-        locationField.innerHTML = data.location.city + ", " + data.location.region;
-        timezoneField.innerHTML = 'UTC ' + data.location.timezone
+var typedAddress = document.querySelector('#typed-address');
 
-        return data;
 
-    }
+// on submit search
+$('button').click(function (e) {
+    e.preventDefault();
+    console.log("digitado: ", typedAddress.value);
+
+    
+    $.ajax({
+        url: url,
+        data: { apiKey: api_key, ipAddress: typedAddress.value },
+        success: function (data, marker) {
+            console.log(data);
+
+            ipField.innerHTML = data.ip;
+            ispField.innerHTML = data.isp;
+            locationField.innerHTML = data.location.city + ", " + data.location.region;
+            timezoneField.innerHTML = 'UTC ' + data.location.timezone
+
+            latValue = data.location.lat;
+            lngValue = data.location.lng;
+        
+
+            console.log(latValue, lngValue);
+
+            return data;
+
+        }
+    });
+       
 });
 
 
+// on loading
+
 $(function () {
-    loadData();
+    $.ajax({
+        url: url,
+        data: { apiKey: api_key, ipAddress: myIp },
+        success: function (data) {
+            console.log(data);
+
+            ipField.innerHTML = data.ip;
+            ispField.innerHTML = data.isp;
+            locationField.innerHTML = data.location.city + ", " + data.location.region;
+            timezoneField.innerHTML = 'UTC ' + data.location.timezone
+            latValue = data.location.lat
+            lngValue = data.location.lng
+
+            console.log(latValue, lngValue)
+
+            return data;
+
+        }
+    });
 });
 
 
