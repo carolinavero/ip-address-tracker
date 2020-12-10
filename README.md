@@ -6,6 +6,8 @@
 
 **This challenge was developed using HTML, CSS and JavaScript.**
 
+---
+
 ## The challenge
 
 Your challenge is to build out this IP Address Tracker app and get it looking as close to the design as possible. To get the IP Address locations, you'll be using the [IP Geolocation API by IPify](https://geo.ipify.org/). To generate the map, we recommend using [LeafletJS](https://leafletjs.com/).
@@ -18,10 +20,6 @@ Your users should be able to:
 - Search for any IP addresses or domains and see the key information and location
 
 ---
-
-[LeafletJS](https://leafletjs.com/) - For the mapping API
-[IP Geolocation API by IPify](https://geo.ipify.org/)
-
 
 ## Deploy
 

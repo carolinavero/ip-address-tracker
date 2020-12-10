@@ -15,7 +15,7 @@ $('button').click(function (e) {
 
     $.ajax({
         url: url,
-        data: { apiKey: api_key, ipAddress: typedAddress.value },
+        data: { apiKey: api_key, ipAddress: typedAddress.value, domain: typedAddress.value },
         success: function (data) {
   
             ipField.innerHTML = data.ip;
@@ -26,13 +26,18 @@ $('button').click(function (e) {
             latValue = data.location.lat;
             lngValue = data.location.lng;
 
+            typedAddress.classList.remove('error');
             var newLatLng = new L.LatLng(latValue, lngValue);
-            marker.setLatLng(newLatLng);        
-            mymap.setView(newLatLng)
+            marker.setLatLng(newLatLng).bindPopup(`You searched for ${typedAddress.value}`);        
+            mymap.setView(newLatLng).setZoom(5);
         
             return data;
 
-        }
+        },
+        error: function (error) {
+            typedAddress.classList.add('error');
+            alert("Error: " + error.status + " - " + error.responseJSON.messages);
+        }       
     });
        
 });

@@ -19,7 +19,7 @@ var myIcon = L.icon({
 var marker = L.marker(myLocation, { icon: myIcon }).bindPopup('You are here!');
 
 var mymap = L.map('mapid')
-            .locate({ setView: true, watch: false })
+            .locate({ setView: true, watch: false, setZoom: 5 })
             .on('locationfound', function (e) {
                 marker = L.marker([e.latitude, e.longitude], { icon: myIcon }).bindPopup('You are here!');
                 mymap.addLayer(marker);
